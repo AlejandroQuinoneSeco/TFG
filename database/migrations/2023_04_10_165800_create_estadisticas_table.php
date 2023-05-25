@@ -9,12 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('estadisticas', function (Blueprint $table) {
-            $table->string('nombre_jugador', 40);
-            $table->unsignedInteger('dorsal');
-            $table->string('posicion', 5);
+            $table->string('nombre_jugador')->primary();
+            $table->string('dorsal');
             $table->integer('partidos_totales');
             $table->integer('partidos_titular');
             $table->integer('partidos_suplente');
@@ -22,6 +21,11 @@ return new class extends Migration
             $table->integer('minutos_jugados');
             $table->integer('tarjetas_amarillas');
             $table->integer('tarjetas_rojas');
+            // Agrega otros campos necesarios
+
+
+            $table->foreign('dorsal')->references('dorsal')->on('players');
+
             $table->timestamps();
         });
     }
@@ -29,7 +33,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('estadisticas');
     }

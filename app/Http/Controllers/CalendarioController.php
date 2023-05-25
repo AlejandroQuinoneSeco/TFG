@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Calendarios;
+use App\Models\Calendario;
 use Illuminate\Http\Request;
 
 class CalendarioController extends Controller
@@ -12,8 +12,8 @@ class CalendarioController extends Controller
      */
     public function index()
     {
-        $calendario = Calendarios::orderBy('Numero_Jornada')->get();
-        return view('paginas/calendarios/index', compact('calendario'));
+        $calendarios = Calendario::orderBy('numero_jornada')->get();
+        return view('paginas/calendarios/index', compact('calendarios'));
 
     }
 
@@ -31,15 +31,16 @@ class CalendarioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Rival' => 'required',
-            'Resultado' => 'required',
+            'numero_jornada' => 'required',
+            'rival' => 'required',
+            'resultado' => 'required',
         ]);
 
-        $calendario = new Calendarios();
-        $calendario->Numero_Jornada = $request->Numero_Jornada;
-        $calendario->Rival = $request->Rival;
-        $calendario->Resultado = $request->Resultado;
-        $calendario->save();
+        $calendarios = new Calendario();
+        $calendarios->numero_jornada = $request->numero_jornada;
+        $calendarios->rival = $request->rival;
+        $calendarios->resultado = $request->resultado;
+        $calendarios->save();
 
         return redirect()->route('calendarios.index');
     }
@@ -47,7 +48,7 @@ class CalendarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Calendarios $calendario)
+    public function show(Calendario $calendario)
     {
         //
     }
@@ -55,7 +56,7 @@ class CalendarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Calendarios $calendario)
+    public function edit(Calendario $calendario)
     {
         //
     }
@@ -63,7 +64,7 @@ class CalendarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Calendarios $calendario)
+    public function update(Request $request, Calendario $calendario)
     {
         //
     }
@@ -71,7 +72,7 @@ class CalendarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Calendarios $calendario)
+    public function destroy(Calendario $calendario)
     {
         //
     }

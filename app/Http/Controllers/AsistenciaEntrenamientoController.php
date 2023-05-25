@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entrenamientos;
+use App\Models\AsistenciaEntrenamiento;
 use Illuminate\Http\Request;
 
-class EntrenamientosController extends Controller
+class AsistenciaEntrenamientoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $entrenamiento= Entrenamientos::orderBy('Numero_Sesion')->get();
-        return view('paginas/entrenamientos/index', compact('entrenamiento'));
+        $entrenamientos = AsistenciaEntrenamiento::orderBy('numero_sesion')->get();
+        return view('paginas/asistencia_entrenamientos/index', compact('entrenamientos'));
     }
 
     /**
@@ -21,7 +21,7 @@ class EntrenamientosController extends Controller
      */
     public function create()
     {
-        return view('paginas/entrenamientos/create');
+        return view('paginas/asistencia_entrenamientos/create');
     }
 
     /**
@@ -30,21 +30,22 @@ class EntrenamientosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'Numero_Sesion'=>'required',
+            'numero_sesion'=>'required',
+            'dorsal'=>'required',
             'fecha'=> 'required',
-            'jugadores_disponibles'=>'required',
-            'descripcion'=>'required',
+            'asistencia'=>'required',
+            'motivo',
         ]);
 
-        $entrenamiento = new Entrenamientos();
-        $entrenamiento->Numero_Sesion = $request->Numero_Sesion;
-        $entrenamiento->fecha = $request->fecha;
-        $entrenamiento->jugadores_disponibles=$request->jugadores_disponibles;
-        $entrenamiento->descripcion=$request->descripcion;
-        $entrenamiento->save();
+        $entrenamientos = new AsistenciaEntrenamiento();
+        $entrenamientos->numero_sesion = $request->numero_sesion;
+        $entrenamientos->dorsal = $request->dorsal;
+        $entrenamientos->fecha = $request->fecha;
+        $entrenamientos->asistencia=$request->asistencia;
+        $entrenamientos->motivo=$request->motivo;
+        $entrenamientos->save();
 
-        return redirect()->route('entrenamientos.index');
-
+        return redirect()->route('asistencia_entrenamientos.index');
 
     }
 

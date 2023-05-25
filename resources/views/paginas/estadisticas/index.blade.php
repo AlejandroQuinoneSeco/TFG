@@ -9,7 +9,6 @@
         <tr>
             <th>Nombre Jugador</th>
             <th>Dorsal</th>
-            <th>Posicion</th>
             <th>Partidos totales</th>
             <th>Partidos titular</th>
             <th>Partidos suplente</th>
@@ -17,7 +16,6 @@
             <th>Minutos Jugados</th>
             <th>Tarjetas Amarillas</th>
             <th>Tarjetas Rojas</th>
-            <th>Eliminar</th>
 
         </tr>
 
@@ -27,12 +25,9 @@
                     <a href='{{ route('estadisticas.show', $estadistica->nombre_jugador) }}'> {{ $estadistica->nombre_jugador }} </a>
                 </td>
 
-                <td>
-                    <a href='{{ route('estadisticas.show', $estadistica->dorsal) }}'> {{ $estadistica->dorsal }} </a>
-                </td>
 
                 <td>
-                    <a href='{{ route('estadisticas.show', $estadistica->posicion) }}'> {{ $estadistica->posicion }} </a>
+                    <a href='{{ route('estadisticas.show', $estadistica->dorsal) }}'> {{ $estadistica->dorsal }} </a>
                 </td>
 
                 <td>
@@ -66,8 +61,8 @@
         @endforeach
 
     </table><br><br>
-    <button class="boton"><a href='{{ route('estadisticas.create') }}'>Crear estadisticas</a></button><br><br>
-    <button class="boton"><a href='{{ route('jugadores.index') }}'>Ver jugadores</a></button>
+    <button><a href='{{ route('estadisticas.create') }}'>Crear estadisticas</a></button><br><br>
+    <button><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
 
 
 </x-zz.base>

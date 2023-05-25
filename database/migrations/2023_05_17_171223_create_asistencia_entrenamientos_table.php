@@ -9,25 +9,28 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('asistencia_entrenamientos', function (Blueprint $table) {
-            $table->id('Numero_Sesion');
-            $table->string('Nombre_Jugador');
+            $table->unsignedBigInteger('numero_sesion');
+            $table->string('dorsal');
             $table->date('fecha');
-            $table->string('Asistencia', 2);
-            $table->string('motivo', 40);
+            $table->boolean('asistencia');
+            $table->string('motivo')->nullable();
+            // Agrega otros campos necesarios
+
+            $table->foreign('numero_sesion')->references('numero_sesion')->on('entrenamientos');
+           // $table->foreign('dorsal')->references('dorsal')->on('players');
+            $table->foreign('dorsal')->references('dorsal')->on('players')->onDelete('cascade');
+
             $table->timestamps();
-
         });
-
-
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('asistencia_entrenamientos');
     }

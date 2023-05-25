@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipoController;
-use App\Http\Controllers\JugadoresController;
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\JornadaController;
-use App\Http\Controllers\EntrenadoresController;
-use App\Http\Controllers\EntrenamientosController;
-use App\Http\Controllers\AsistenciaEntrenamientosController;
+use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\EntrenamientoController;
+use App\Http\Controllers\AsistenciaEntrenamientoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +19,17 @@ use App\Http\Controllers\AsistenciaEntrenamientosController;
 |
 */
 Route::resource('equipos', \App\Http\Controllers\EquipoController::class);
-Route::resource('jugadores', \App\Http\Controllers\JugadoresController::class);
+Route::resource('players', \App\Http\Controllers\PlayerController::class);
 Route::resource('jornadas', \App\Http\Controllers\JornadaController::class);
-Route::resource('entrenadores', \App\Http\Controllers\EntrenadoresController::class);
-Route::resource('entrenamientos', \App\Http\Controllers\EntrenamientosController::class);
-Route::resource('asistencia_entrenamientos', \App\Http\Controllers\AsistenciaEntrenamientosController::class);
+Route::resource('trainers', \App\Http\Controllers\TrainerController::class);
+Route::resource('entrenamientos', \App\Http\Controllers\EntrenamientoController::class);
+Route::resource('asistencia_entrenamientos', \App\Http\Controllers\AsistenciaEntrenamientoController::class);
 Route::resource('calendarios', \App\Http\Controllers\CalendarioController::class);
-Route::resource('estadisticas', \App\Http\Controllers\EstadisticasController::class);
+Route::resource('estadisticas', \App\Http\Controllers\EstadisticaController::class);
+
+
+Route::get('/estadisticas/{nombre_jugador}', [\App\Http\Controllers\EstadisticaController::class, 'index'])->name('estadisticas.index');
+
 
 
 Route::get('/', function () {

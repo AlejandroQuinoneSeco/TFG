@@ -3,7 +3,7 @@
     <x-slot:tituloHead>Jornadas</x-slot:tituloHead>
     <x-slot:tituloVisible>Mi equipo</x-slot:tituloVisible>
 
-    <form action=' {{ route('jugadores.store') }}' method='post'>
+    <form action=' {{ route('players.store') }}' method='post'>
         @method('post')
         @csrf
 
@@ -22,6 +22,6 @@
     <br><br>
     <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
     <br><br>
-    <button><a href="{{route('jugadores.index')}}">Ver jugadores</a></button>
+    <button><a href="{{route('players.index')}}">Ver jugadores</a></button>
 
 </x-zz.base>

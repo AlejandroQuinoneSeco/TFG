@@ -9,12 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('jugadores', function (Blueprint $table) {
-            $table->string('nombre_jugador', 40);
-            $table->id('dorsal');
-            $table->string('posicion', 5);
+        Schema::create('equipos', function (Blueprint $table) {
+            $table->id('id_equipo');
+            $table->string('nombre_equipo');
+            $table->string('color_equipacion');
+            // Agrega otros campos necesarios
+
             $table->timestamps();
         });
     }
@@ -22,8 +24,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('jugadores');
+        Schema::dropIfExists('equipos');
     }
 };

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipos;
+use App\Models\Equipo;
 use Illuminate\Http\Request;
 
 class EquipoController extends Controller
@@ -12,7 +12,7 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        $equipos = Equipos::orderBy('ID_Equipo')->get();
+        $equipos = Equipo::orderBy('ID_Equipo')->get();
         return view('paginas/equipos/index', compact('equipos'));
 
     }
@@ -36,7 +36,7 @@ class EquipoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Equipos $equipo)
+    public function show(Equipo $equipo)
     {
         //
     }
@@ -44,7 +44,7 @@ class EquipoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Equipos $equipo)
+    public function edit(Equipo $equipo)
     {
         //
     }
@@ -52,7 +52,7 @@ class EquipoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Equipos $equipo)
+    public function update(Request $request, Equipo $equipo)
     {
         //
     }
@@ -60,7 +60,7 @@ class EquipoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Equipos $equipo)
+    public function destroy(Equipo $equipo)
     {
         //
     }

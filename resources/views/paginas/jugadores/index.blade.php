@@ -10,27 +10,44 @@
             <th>Nombre Jugador</th>
             <th>Dorsal</th>
             <th>Posicion</th>
+            <th>Eliminar</th>
+            <th>Estadisticas</th>
         </tr>
 
-        @foreach ($jugadores as $jugador)
+
+
+        @foreach ($players as $player)
             <tr>
                 <td>
-                    {{ $jugador->nombre_jugador }}
+                    <a href='{{ route('players.show', $player->dorsal) }}'>{{ $player->nombre_jugador }}</a>
                 </td>
 
                 <td>
-                    {{ $jugador->dorsal }}
+                    <a href='{{ route('players.show', $player->dorsal) }}'>{{ $player->dorsal }} </a>
+                </td>
+                <td>
+                    <a href='{{ route('players.show', $player->dorsal) }}'>{{ $player->posicion }} </a>
                 </td>
 
                 <td>
-                    {{ $jugador->posicion }}
-                </td>
+                    <form action='{{ route('players.destroy', $player->dorsal) }}' method='post'>
+                        @method('delete')
+                        @csrf
 
+                        <button type='submit'>Eliminar</button>
+                    </form>
+                </td>
+                <td>
+                <button><a href="{{ route('estadisticas.index', ['nombre_jugador' => $player->nombre_jugador]) }}">Ver estadísticas</a></button>
+                </td>
+            </tr>
         @endforeach
 
-    </table><br><br>
+    </table>
+    <br><br>
 
-    <button><a href="{{route('estadisticas.index')}}">Ver estadisticas</a></button>
-    <button><a href="{{route('jugadores.create')}}">Añadir jugador</a></button>
+    <button><a href="{{route('players.create')}}">Añadir jugador</a></button>
 
 </x-zz.base>
+
+

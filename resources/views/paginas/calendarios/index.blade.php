@@ -12,18 +12,18 @@
             <th>Resultado</th>
         </tr>
 
-        @foreach ($calendario as $calendarios)
+        @foreach ($calendarios as $calendario)
             <tr>
                 <td>
-                    {{ $calendarios->Numero_Jornada }}
+                    {{ $calendario->numero_jornada }}
                 </td>
 
                 <td>
-                    {{ $calendarios->Rival }}
+                    {{ $calendario->rival }}
                 </td>
 
                 <td>
-                    {{ $calendarios->Resultado }}
+                    {{ $calendario->resultado }}
                 </td>
 
         @endforeach

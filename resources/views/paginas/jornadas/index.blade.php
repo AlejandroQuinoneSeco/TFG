@@ -15,7 +15,7 @@
                     mi equipo
                 </td>
                 <td>
-                    {{ $jornadas->Proximo_rival }}
+                    {{ $jornadas->proximo_rival }}
                 </td>
             </tr>
         @endforeach
@@ -35,21 +35,21 @@
         @foreach ($jornada as $jornadas)
             <tr>
                 <td>
-                    {{ $jornadas->Numero_jornada }}
+                    {{ $jornadas->numero_jornada }}
                 </td>
                 <td>
-                    {{ $jornadas->Lugar }}
-                </td>
-
-                <td>
-                    {{ $jornadas->Fecha }}
-                </td>
-                <td>
-                    {{ $jornadas->Hora }}
+                    {{ $jornadas->lugar }}
                 </td>
 
                 <td>
-                    {{ $jornadas->Jugadores_disponibles }}
+                    {{ $jornadas->fecha }}
+                </td>
+                <td>
+                    {{ $jornadas->hora }}
+                </td>
+
+                <td>
+                    {{ $jornadas->jugadores_disponibles }}
                 </td>
         @endforeach
 

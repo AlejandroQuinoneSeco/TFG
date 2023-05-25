@@ -9,12 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('calendarios', function (Blueprint $table) {
-            $table->id('Numero_Jornada');
-            $table->string('Rival',40);
-            $table->string('Resultado',40);
+            $table->unsignedBigInteger('numero_jornada');
+            $table->string('rival');
+            $table->string('resultado');
+            // Agrega otros campos necesarios
+
+            $table->foreign('numero_jornada')->references('numero_jornada')->on('jornadas');
+
             $table->timestamps();
         });
     }
@@ -22,7 +26,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('calendarios');
     }

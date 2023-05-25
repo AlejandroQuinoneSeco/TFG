@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AsistenciaEntrenamientos;
+use App\Models\Entrenamiento;
 use Illuminate\Http\Request;
 
-class AsistenciaEntrenamientosController extends Controller
+class EntrenamientoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $entrenamiento= AsistenciaEntrenamientos::orderBy('Numero_Sesion')->get();
-        return view('paginas/asistencia_entrenamientos/index', compact('entrenamiento'));
+        $entrenamiento= Entrenamiento::orderBy('Numero_Sesion')->get();
+        return view('paginas/entrenamientos/index', compact('entrenamiento'));
     }
 
     /**
@@ -21,7 +21,7 @@ class AsistenciaEntrenamientosController extends Controller
      */
     public function create()
     {
-        return view('paginas/asistencia_entrenamientos/create');
+        return view('paginas/entrenamientos/create');
     }
 
     /**
@@ -31,21 +31,20 @@ class AsistenciaEntrenamientosController extends Controller
     {
         $this->validate($request,[
             'Numero_Sesion'=>'required',
-            'Nombre_Jugador'=>'required',
             'fecha'=> 'required',
-            'Asistencia'=>'required',
-            'motivo',
+            'jugadores_disponibles'=>'required',
+            'descripcion'=>'required',
         ]);
 
-        $entrenamiento = new AsistenciaEntrenamientos();
+        $entrenamiento = new Entrenamiento();
         $entrenamiento->Numero_Sesion = $request->Numero_Sesion;
-        $entrenamiento->Nombre_Jugador = $request->Nombre_Jugador;
         $entrenamiento->fecha = $request->fecha;
-        $entrenamiento->Asistencia=$request->Asistencia;
-        $entrenamiento->motivo=$request->motivo;
+        $entrenamiento->jugadores_disponibles=$request->jugadores_disponibles;
+        $entrenamiento->descripcion=$request->descripcion;
         $entrenamiento->save();
 
-        return redirect()->route('asistencia_entrenamientos.index');
+        return redirect()->route('entrenamientos.index');
+
 
     }
 

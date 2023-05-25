@@ -17,7 +17,7 @@
         @foreach ($entrenamiento as $entrenamientos)
             <tr>
                 <td>
-                    {{ $entrenamientos->Numero_Sesion }}
+                    {{ $entrenamientos->numero_sesion }}
                 </td>
 
                 <td>

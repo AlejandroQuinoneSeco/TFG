@@ -9,16 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('jornadas', function (Blueprint $table) {
-            $table->id('Numero_jornada');
-            $table->string('Lugar',40);
-            $table->date('Fecha');
-            $table->time('Hora');
-            $table->string('Proximo_rival',40);
-            $table->string('Anterior_rival',40);
-            $table->integer('Jugadores_disponibles');
+            $table->id('numero_jornada');
+            $table->string('lugar');
+            $table->date('fecha');
+            $table->time('hora');
+            $table->string('proximo_rival');
+            $table->integer('jugadores_disponibles');
             $table->timestamps();
         });
     }
@@ -26,7 +25,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('jornadas');
     }

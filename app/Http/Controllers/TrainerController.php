@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entrenadores;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
-class EntrenadoresController extends Controller
+class TrainerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class EntrenadoresController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Entrenadores $entrenadores)
+    public function show(Trainer $trainers)
     {
         //
     }
@@ -42,7 +42,7 @@ class EntrenadoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Entrenadores $entrenadores)
+    public function edit(Trainer $trainers)
     {
         //
     }
@@ -50,7 +50,7 @@ class EntrenadoresController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Entrenadores $entrenadores)
+    public function update(Request $request, Trainer $trainers)
     {
         //
     }
@@ -58,7 +58,7 @@ class EntrenadoresController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Entrenadores $entrenadores)
+    public function destroy(Trainer $trainers)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jornadas;
+use App\Models\Jornada;
 use Illuminate\Http\Request;
 
 class JornadaController extends Controller
@@ -12,7 +12,7 @@ class JornadaController extends Controller
      */
     public function index()
     {
-        $jornada = Jornadas::orderBy('Numero_jornada')->get();
+        $jornada = Jornada::orderBy('numero_jornada')->get();
         return view('paginas/jornadas/index', compact('jornada'));
     }
 
@@ -30,23 +30,21 @@ class JornadaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Numero_jornada' => 'required',
-            'Lugar' => 'required',
-            'Fecha' => 'required',
-            'Hora' => 'required',
-            'Proximo_rival' => 'required',
-            'Anterior_rival' => 'required',
-            'Jugadores_disponibles' => 'required',
+            'numero_jornada' => 'required',
+            'lugar' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+            'proximo_rival' => 'required',
+            'jugadores_disponibles' => 'required',
         ]);
 
-        $jornada = new Jornadas();
-        $jornada->Numero_jornada = $request->Numero_jornada;
-        $jornada->Lugar = $request->Lugar;
-        $jornada->Fecha = $request->Fecha;
-        $jornada->Hora = $request->Hora;
-        $jornada->Proximo_rival = $request->Proximo_rival;
-        $jornada->Anterior_rival = $request->Anterior_rival;
-        $jornada->Jugadores_disponibles = $request->Jugadores_disponibles;
+        $jornada = new Jornada();
+        $jornada->numero_jornada = $request->numero_jornada;
+        $jornada->lugar = $request->lugar;
+        $jornada->fecha = $request->fecha;
+        $jornada->hora = $request->hora;
+        $jornada->proximo_rival = $request->proximo_rival;
+        $jornada->jugadores_disponibles = $request->jugadores_disponibles;
         $jornada->save();
 
         return redirect()->route('jornadas.index');
@@ -55,7 +53,7 @@ class JornadaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Jornadas $jornada)
+    public function show(Jornada $jornada)
     {
         //
     }
@@ -63,7 +61,7 @@ class JornadaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jornadas $jornada)
+    public function edit(Jornada $jornada)
     {
         //
     }
@@ -71,7 +69,7 @@ class JornadaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Jornadas $jornada)
+    public function update(Request $request, Jornada $jornada)
     {
         //
     }
@@ -79,7 +77,7 @@ class JornadaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jornadas $jornada)
+    public function destroy(Jornada $jornada)
     {
         //
     }

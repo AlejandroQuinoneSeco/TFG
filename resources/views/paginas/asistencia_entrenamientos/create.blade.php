@@ -7,17 +7,23 @@
         @method('post')
         @csrf
 
-        <br><label for='Numero_Sesion'>Numero Sesion</label>
-        <input type='text' id='Numero_Sesion' name='Numero_Sesion'>
+        <br><label for='numero_sesion'>Numero Sesion</label>
+        <input type='number' id='numero_sesion' name='numero_sesion'>
 
-        <br><label for='Nombre_Jugador'>Nombre Jugador</label>
-        <input type='text' id='Nombre_Jugador' name='Nombre_Jugador'>
+        <br><label for='dorsal'>Dorsal</label>
+        <input type='number' id='dorsal' name='dorsal'>
 
         <br><label for='fecha'>Fecha</label>
         <input type='date' id='fecha' name='fecha'>
 
-        <br><label for='Asistencia'>Asistencia</label>
-        <input type='text' id='Asistencia' name='Asistencia'>
+
+        <br><label for='asistencia'>Asistencia</label>
+        <select id='asistencia' name='asistencia'>
+            <optgroup label='Asistencia'>
+                <option {{ ($entrenamiento->asistencia ?? '') ? 'selected' : '' }} value='1'>Si</option>
+                <option {{ ($entrenamiento->asistencia ?? '') ? 'selected' : '' }} value='0'>No</option>
+            </optgroup>
+        </select>
 
         <br><label for='motivo'>Motivo</label>
         <input type='text' id='motivo' name='motivo'>
@@ -29,6 +35,6 @@
     <br><br>
     <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
     <br><br>
-    <button><a href="{{route('jugadores.index')}}">Ver jugadores</a></button>
+    <button><a href="{{route('players.index')}}">Ver jugadores</a></button>
 
 </x-zz.base>

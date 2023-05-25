@@ -9,32 +9,33 @@
 
         <tr>
             <th>Numero Sesion</th>
-            <th>Nombre Jugador</th>
+            <th>Dorsal</th>
             <th>Fecha</th>
             <th>Asistencia</th>
             <th>Motivo</th>
         </tr>
 
-        @foreach ($entrenamiento as $entrenamientos)
+        @foreach ($entrenamientos as $entrenamiento)
             <tr>
                 <td>
-                    {{ $entrenamientos->Numero_Sesion }}
+                    {{ $entrenamiento->numero_sesion }}
                 </td>
 
                 <td>
-                    {{$entrenamientos->Nombre_Jugador}}
+                    {{$entrenamiento->dorsal}}
                 </td>
 
                 <td>
-                    {{ $entrenamientos->fecha }}
+                    {{ $entrenamiento->fecha }}
                 </td>
 
                 <td>
-                    {{ $entrenamientos->Asistencia}}
+                    {{ ($entrenamiento->asistencia ?? '') ? 'Si' : 'No' }}
+
                 </td>
 
                 <td>
-                    {{ $entrenamientos->motivo}}
+                    {{ $entrenamiento->motivo}}
                 </td>
 
         @endforeach

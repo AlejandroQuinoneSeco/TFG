@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('entrenamientos', function (Blueprint $table) {
-            $table->id('numero_sesion');
-            $table->date('fecha');
-            $table->integer('jugadores_disponibles');
-            $table->string('descripcion');
+        Schema::create('trainers', function (Blueprint $table) {
+            $table->id('id_entrenador');
+            $table->string('nombre_entrenador');
+            $table->string('funcion_entrenador');
             // Agrega otros campos necesarios
 
             $table->timestamps();
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entrenamientos');
+        Schema::dropIfExists('trainers');
     }
 };

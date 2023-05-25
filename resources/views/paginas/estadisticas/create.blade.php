@@ -12,10 +12,7 @@
         <input type='text' id='nombre_jugador' name='nombre_jugador' value="{{ request('nombre_jugador')}}">
 
         <br><label for='dorsal'>Dorsal</label>
-        <input type='number' id='dorsal' name='dorsal'>
-
-        <br><label for='posicion'>Posicion</label>
-        <input type='text' id='posicion' name='posicion'>
+        <input type='number' id='dorsal' name='dorsal' value="{{ request('dorsal')}}">
 
         <br><label for='partidos_totales'>Partidos Totales</label>
         <input type='number' id='partidos_totales' name='partidos_totales'>
