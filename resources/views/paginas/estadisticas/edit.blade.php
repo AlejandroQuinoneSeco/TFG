@@ -6,14 +6,14 @@
         @method('put')
         @csrf
 
-            <x-estadisticas.estadisticas_campos :estadisticas='$estadisticas'/>
+        <x-estadisticas.estadisticas_campos :estadisticas='$estadisticas'/>
 
-            <br><br>
-
-            <button type='submit'>Actualizar</button>
-        </form><br>
+        <br><br>
 
         <button type='submit'>Actualizar</button>
+    </form><br>
+
+    <button type='submit'>Actualizar</button>
     </form>
 
     <button class="boton"><a href='{{ route('estadisticas.index') }}'>Ver estadisticas</a></button>

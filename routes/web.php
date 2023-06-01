@@ -28,7 +28,9 @@ Route::resource('calendarios', \App\Http\Controllers\CalendarioController::class
 Route::resource('estadisticas', \App\Http\Controllers\EstadisticaController::class);
 
 
-Route::get('/estadisticas/{nombre_jugador}', [\App\Http\Controllers\EstadisticaController::class, 'index'])->name('estadisticas.index');
+Route::get('/estadisticas', [\App\Http\Controllers\EstadisticaController::class, 'index'])->name('estadisticas.index');
+Route::get('/estadisticas/{nombre_jugador}', [\App\Http\Controllers\EstadisticaController::class, 'showByPlayer'])->name('estadisticas.showByPlayer');
+
 
 
 

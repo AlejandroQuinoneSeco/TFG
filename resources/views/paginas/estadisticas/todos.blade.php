@@ -1,23 +1,23 @@
 <x-zz.base>
+    <x-slot:tituloHead>Estadísticas</x-slot:tituloHead>
+    <x-slot:tituloVisible>Todas las Estadísticas</x-slot:tituloVisible>
 
-    <x-slot:tituloHead>Plantilla</x-slot:tituloHead>
-    <x-slot:tituloVisible>Jugadores</x-slot:tituloVisible>
+    <h1>Todas las Estadísticas</h1>
 
-    <h1>Plantilla</h1>
 
     <table border="1">
-        <tr>
-            <th>Nombre Jugador</th>
-            <th>Dorsal</th>
-            <th>Partidos totales</th>
-            <th>Partidos titular</th>
-            <th>Partidos suplente</th>
-            <th>Goles</th>
-            <th>Minutos Jugados</th>
-            <th>Tarjetas Amarillas</th>
-            <th>Tarjetas Rojas</th>
+                <tr>
+                    <th>Nombre Jugador</th>
+                    <th>Dorsal</th>
+                    <th>Partidos totales</th>
+                    <th>Partidos titular</th>
+                    <th>Partidos suplente</th>
+                    <th>Goles</th>
+                    <th>Minutos Jugados</th>
+                    <th>Tarjetas Amarillas</th>
+                    <th>Tarjetas Rojas</th>
+                </tr>
 
-        </tr>
 
         @foreach ($estadisticas as $estadistica)
             <tr>
@@ -32,12 +32,5 @@
                 <td>{{ $estadistica->tarjetas_rojas }}</td>
             </tr>
         @endforeach
-
-
-
-    </table><br><br>
-    <button><a href='{{ route('estadisticas.create') }}'>Crear estadisticas</a></button><br><br>
-    <button><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
-
-
+    </table>
 </x-zz.base>

@@ -24,7 +24,7 @@ return new class extends Migration
             // Agrega otros campos necesarios
 
 
-            $table->foreign('dorsal')->references('dorsal')->on('players');
+            $table->foreign('dorsal')->references('dorsal')->on('players')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

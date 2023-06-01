@@ -10,15 +10,19 @@ class EstadisticaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($nombre_jugador)
+    public function index()
     {
-
-        $jugador = Player::where('nombre_jugador', $nombre_jugador)->first();
-        $estadisticas = $jugador->estadisticas;
-
-
+        $estadisticas = Estadistica::all();
         return view('paginas/estadisticas/index', compact('estadisticas'));
     }
+
+    public function showByPlayer($nombre_jugador)
+    {
+        $jugador = Player::where('nombre_jugador', $nombre_jugador)->first();
+        $estadisticas = $jugador->estadisticas;
+        return view('paginas/estadisticas/show', compact('estadisticas'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

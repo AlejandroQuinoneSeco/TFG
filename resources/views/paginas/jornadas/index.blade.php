@@ -3,24 +3,19 @@
     <x-slot:tituloHead>Jornadas</x-slot:tituloHead>
     <x-slot:tituloVisible>Mi equipo</x-slot:tituloVisible>
 
+    @if(isset($ultimaJornada))
     <table border= '1'>
         <tr>
             <th>Equipo</th>
             <th>Proximo Rival</th>
         </tr>
-
-        @foreach($jornada as $jornadas)
-            <tr>
-                <td>
-                    mi equipo
-                </td>
-                <td>
-                    {{ $jornadas->proximo_rival }}
-                </td>
-            </tr>
-        @endforeach
+        <tr>
+            <td>Mi equipo</td>
+            <td>{{ $ultimaJornada->proximo_rival }}</td>
+        </tr>
     </table>
-
+    @endif
+    @if(isset($ultimaJornada))
     <h1>Informacion del partido de esta semana</h1>
 
     <table border="1">
@@ -31,28 +26,17 @@
             <th>Hora</th>
             <th>Jugadores Disp.</th>
         </tr>
-
-        @foreach ($jornada as $jornadas)
-            <tr>
-                <td>
-                    {{ $jornadas->numero_jornada }}
-                </td>
-                <td>
-                    {{ $jornadas->lugar }}
-                </td>
-
-                <td>
-                    {{ $jornadas->fecha }}
-                </td>
-                <td>
-                    {{ $jornadas->hora }}
-                </td>
-
-                <td>
-                    {{ $jornadas->jugadores_disponibles }}
-                </td>
-        @endforeach
-
+        <tr>
+            <td>{{ $ultimaJornada->numero_jornada }}</td>
+            <td>{{ $ultimaJornada->lugar }}</td>
+            <td>{{ $ultimaJornada->fecha }}</td>
+            <td>{{ $ultimaJornada->hora }}</td>
+            <td>{{ $ultimaJornada->jugadores_disponibles }}</td>
+        </tr>
+    </table>
+            @else
+               <p>No hay jornadas registradas.</p>
+            @endif
 
     </table><br><br>
 

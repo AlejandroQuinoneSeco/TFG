@@ -12,8 +12,8 @@ class JornadaController extends Controller
      */
     public function index()
     {
-        $jornada = Jornada::orderBy('numero_jornada')->get();
-        return view('paginas/jornadas/index', compact('jornada'));
+        $ultimaJornada = Jornada::orderBy('numero_jornada', 'desc')->first();
+        return view('paginas/jornadas/index', compact('ultimaJornada'));
     }
 
     /**

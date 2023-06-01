@@ -20,8 +20,9 @@ return new class extends Migration
             // Agrega otros campos necesarios
 
             $table->foreign('numero_sesion')->references('numero_sesion')->on('entrenamientos');
-           // $table->foreign('dorsal')->references('dorsal')->on('players');
-            $table->foreign('dorsal')->references('dorsal')->on('players')->onDelete('cascade');
+            // $table->foreign('dorsal')->references('dorsal')->on('players');
+            $table->foreign('dorsal')->references('dorsal')->on('players')->onDelete('cascade')->onUpdate('cascade');
+
 
             $table->timestamps();
         });

@@ -38,7 +38,7 @@
                     </form>
                 </td>
                 <td>
-                <button><a href="{{ route('estadisticas.index', ['nombre_jugador' => $player->nombre_jugador]) }}">Ver estadísticas</a></button>
+                    <button><a href="{{ route('estadisticas.showByPlayer', ['nombre_jugador' => $player->nombre_jugador]) }}">Ver estadísticas</a></button>
                 </td>
             </tr>
         @endforeach
@@ -49,5 +49,4 @@
     <button><a href="{{route('players.create')}}">Añadir jugador</a></button>
 
 </x-zz.base>
-
 

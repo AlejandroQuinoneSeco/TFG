@@ -14,6 +14,7 @@ class PlayerController extends Controller
     {
         $players = Player::orderBy('nombre_jugador')->get();
         return view('paginas/jugadores/index', compact('players'));
+
     }
 
     /**
@@ -49,7 +50,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-       return view('paginas/jugadores/show', compact('player'));
+        return view('paginas/jugadores/show', compact('player'));
     }
 
     /**
