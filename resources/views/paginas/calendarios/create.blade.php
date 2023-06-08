@@ -9,14 +9,14 @@
 <div class="form-group">
 
     <label for="Numero_Jornada">Numero Jornada</label>
-    <input type='number' id='numero_jornada' name='numero_jornada' class="form-control">
+    <input type="hidden" id='numero_jornada' name='numero_jornada' class="form-control" value="{{ $numero_jornada }}">: {{$numero_jornada}}
 
 </div>
 
         <div class="form-group">
 
             <label for='rival'>Rival</label>
-            <input type='varchar' id='rival' name='rival' class="form-control">
+            <input type="hidden" id='proximo_rival' name="proximo_rival" class="form-control" value="{{ $proximo_rival }}">: {{ $proximo_rival }}
 
         </div>
 <div class="form-group">

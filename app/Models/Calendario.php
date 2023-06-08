@@ -9,6 +9,7 @@ class Calendario extends Model
 {
     public function jornada()
     {
-        return $this->belongsTo(Jornada::class, 'jornada_id', 'id');
+        return $this->belongsTo(Jornada::class, 'numero_jornada', 'numero_jornada');
     }
+
 }

@@ -55,7 +55,7 @@ class JornadaController extends Controller
      */
     public function show(Jornada $jornada)
     {
-        //
+        return view('paginas/jornadas/show', compact('jornada'));
     }
 
     /**
@@ -63,7 +63,7 @@ class JornadaController extends Controller
      */
     public function edit(Jornada $jornada)
     {
-        //
+        return view('paginas/jornadas/edit', compact('jornada'));
     }
 
     /**
@@ -71,7 +71,24 @@ class JornadaController extends Controller
      */
     public function update(Request $request, Jornada $jornada)
     {
-        //
+        $this->validate($request, [
+        'numero_jornada' => 'required',
+        'lugar' => 'required',
+        'fecha' => 'required',
+        'hora' => 'required',
+        'proximo_rival' => 'required',
+        'jugadores_disponibles' => 'required',
+    ]);
+
+        $jornada->numero_jornada = $request->numero_jornada;
+        $jornada->lugar = $request->lugar;
+        $jornada->fecha = $request->fecha;
+        $jornada->hora = $request->hora;
+        $jornada->proximo_rival = $request->proximo_rival;
+        $jornada->jugadores_disponibles = $request->jugadores_disponibles;
+        $jornada->save();
+
+        return redirect()->route('jornadas.index');
     }
 
     /**

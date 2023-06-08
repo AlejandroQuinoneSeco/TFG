@@ -17,9 +17,13 @@ return new class extends Migration
             $table->string('resultado');
             // Agrega otros campos necesarios
 
-            $table->foreign('numero_jornada')->references('numero_jornada')->on('jornadas');
-
+            $table->foreign('numero_jornada')
+                ->references('numero_jornada')
+                ->on('jornadas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
+
         });
     }
 

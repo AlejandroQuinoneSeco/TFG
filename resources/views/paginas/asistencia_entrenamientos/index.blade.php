@@ -25,6 +25,7 @@
                 <td>{{ $asistencia->fecha }}</td>
                 <td>{{ ($asistencia->asistencia) ? 'Si' : 'No' }}</td>
                 <td>{{ $asistencia->motivo }}</td>
+                <td> <button><a href="{{ route('asistencia_entrenamientos.create', $asistencia->numero_sesion) }}">Crear asistencia</a></button></td>
             </tr>
         @endforeach
 
@@ -34,7 +35,7 @@
 
     </table><br><br>
 </div>
-    <button><a href="{{ route('asistencia_entrenamientos.create', $asistencia->numero_sesion) }}">Crear asistencia</a></button>
+
 
     <button><a href="{{route('entrenamientos.index')}}">Volver a entrenamientos</a></button>
 </x-zz.base>

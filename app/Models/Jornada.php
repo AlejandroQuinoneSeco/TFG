@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jornada extends Model
 {
+    protected $primaryKey = 'numero_jornada';
+
+
     public function equipo()
     {
         return $this->belongsTo(Equipo::class, 'equipo_id', 'id_equipo');
@@ -14,6 +17,7 @@ class Jornada extends Model
 
     public function calendarios()
     {
-        return $this->hasMany(Calendario::class, 'jornada_id', 'id');
+        return $this->hasMany(Calendario::class, 'numero_jornada', 'numero_jornada');
     }
+
 }

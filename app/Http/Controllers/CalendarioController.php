@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calendario;
+use App\Models\Jornada;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 class CalendarioController extends Controller
 {
@@ -12,18 +15,27 @@ class CalendarioController extends Controller
      */
     public function index()
     {
-        $calendarios = Calendario::orderBy('numero_jornada')->get();
-        return view('paginas/calendarios/index', compact('calendarios'));
+        $jornadas = Jornada::orderBy('numero_jornada')->get();
+        $calendarios = Calendario::whereIn('numero_jornada', $jornadas->pluck('numero_jornada'))->get();
 
+
+        return view('paginas/calendarios.index', compact('jornadas', 'calendarios'));
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('paginas/calendarios/create');
+        $numero_jornada = $request->input('numero_jornada');
+        $proximo_rival = $request->input('proximo_rival');
+
+        return view('paginas/calendarios.create', compact('numero_jornada', 'proximo_rival'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -32,15 +44,15 @@ class CalendarioController extends Controller
     {
         $this->validate($request, [
             'numero_jornada' => 'required',
-            'rival' => 'required',
+            'proximo_rival' => 'required',
             'resultado' => 'required',
         ]);
 
-        $calendarios = new Calendario();
-        $calendarios->numero_jornada = $request->numero_jornada;
-        $calendarios->rival = $request->rival;
-        $calendarios->resultado = $request->resultado;
-        $calendarios->save();
+        $calendario = new Calendario();
+        $calendario->numero_jornada = $request->numero_jornada;
+        $calendario->rival = $request->proximo_rival;
+        $calendario->resultado = $request->resultado;
+        $calendario->save();
 
         return redirect()->route('calendarios.index');
     }

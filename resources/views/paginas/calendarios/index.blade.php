@@ -1,43 +1,40 @@
 <x-zz.base>
-
     <x-slot:tituloHead>Calendario</x-slot:tituloHead>
     <x-slot:tituloVisible>Calendario</x-slot:tituloVisible>
 
     <head>
-        <h1>Calendario</h1>
         <link href="{{ asset('public/css/custom.css') }}" rel="stylesheet">
     </head>
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th>Numero Jornada</th>
-            <th>Rival</th>
-            <th>Resultado</th>
-        </tr>
-
-        @foreach ($calendarios as $calendario)
+    <div class="table-responsive">
+        <table class="table">
             <tr>
-                <td>
-                    {{ $calendario->numero_jornada }}
-                </td>
+                <th>Numero Jornada</th>
+                <th>Rival</th>
+                <th>Resultado</th>
+                <th>Añadir resultado</th>
+            </tr>
 
-                <td>
-                    {{ $calendario->rival }}
-                </td>
-
-                <td>
-                    {{ $calendario->resultado }}
-                </td>
-
-        @endforeach
-
-
-
-
-    </table><br><br>
-</div>
-    <button><a href="{{route('jornadas.index')}}">Ver jornadas</a></button>
-
-    <button><a href="{{route('calendarios.create')}}">Añadir resultado</a></button>
-
+            @foreach ($jornadas->slice(0, -1) as $jornada)
+                <tr>
+                    <td>{{ $jornada->numero_jornada }}</td>
+                    <td>{{ $jornada->proximo_rival }}</td>
+                    <td>
+                        @foreach ($calendarios as $calendario)
+                            @if ($calendario->numero_jornada == $jornada->numero_jornada)
+                                {{ $calendario->resultado }}
+                            @endif
+                        @endforeach
+                    </td>
+                    <td>
+                        <button>
+                            <a href="{{ route('calendarios.create', ['numero_jornada' => $jornada->numero_jornada, 'proximo_rival' => $jornada->proximo_rival]) }}">
+                                Añadir resultado
+                            </a>
+                        </button>
+                    </td>
+                </tr>
+            @endforeach
+        </table><br><br>
+    </div>
+    <button><a href="{{ route('jornadas.index') }}">Ver jornadas</a></button>
 </x-zz.base>

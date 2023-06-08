@@ -37,6 +37,10 @@ Route::get('/asistencias_entrenamiento/createWithDefaultValue/{numero_sesion}', 
 Route::get('/estadisticas', [\App\Http\Controllers\EstadisticaController::class, 'index'])->name('estadisticas.index');
 Route::get('/estadisticas/{nombre_jugador}', [\App\Http\Controllers\EstadisticaController::class, 'showByPlayer'])->name('estadisticas.showByPlayer');
 
+
+Route::get('/calendarios/{jornada}/resultados/create', [\App\Http\Controllers\CalendarioController::class, 'createResultado'])->name('calendarios.resultados.create');
+Route::post('/calendarios/{jornada}/resultados', [\App\Http\Controllers\CalendarioController::class, 'storeResultado'])->name('calendarios.resultados.store');
+
 Route::get('/', function () {
     return view('welcome');
 });

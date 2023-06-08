@@ -30,11 +30,12 @@
             <th>Jugadores Disp.</th>
         </tr>
         <tr>
-            <td>{{ $ultimaJornada->numero_jornada }}</td>
-            <td>{{ $ultimaJornada->lugar }}</td>
-            <td>{{ $ultimaJornada->fecha }}</td>
-            <td>{{ $ultimaJornada->hora }}</td>
-            <td>{{ $ultimaJornada->jugadores_disponibles }}</td>
+            <td><a href='{{ route('jornadas.show', $ultimaJornada->numero_jornada) }}'>{{ $ultimaJornada->numero_jornada }}</a></td>
+            <td><a href='{{ route('jornadas.show', $ultimaJornada->numero_jornada) }}'>{{ $ultimaJornada->lugar }}</a></td>
+            <td><a href='{{ route('jornadas.show', $ultimaJornada->numero_jornada) }}'>{{ $ultimaJornada->fecha }}</a></td>
+            <td><a href='{{ route('jornadas.show', $ultimaJornada->numero_jornada) }}'>{{ $ultimaJornada->hora }}</a></td>
+            <td><a href='{{ route('jornadas.show', $ultimaJornada->numero_jornada) }}'>{{ $ultimaJornada->jugadores_disponibles }}</a></td>
+            <td><button><a href="{{ route('jornadas.edit', ['jornada' => $ultimaJornada->numero_jornada]) }}">Editar Jornada</a></button></td>
         </tr>
     </table>
         </div>
@@ -48,5 +49,8 @@
 
     <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
     <button><a href="{{route('jornadas.create')}}">Añadir Jornada</a></button>
+
+
+
 
 </x-zz.base>
