@@ -6,21 +6,29 @@
     <form action=' {{ route('entrenamientos.store') }}' method='post'>
         @method('post')
         @csrf
+        <div class="form-group">
+        <label for='numero_Sesion'>Numero Sesion</label>
+        <input type='text' id='numero_sesion' name='numero_sesion'  class="form-control">
+        </div>
 
-        <br><label for='Numero_Sesion'>Numero Sesion</label>
-        <input type='text' id='Numero_Sesion' name='Numero_Sesion'>
+        <div class="form-group">
+        <label for='fecha'>Fecha</label>
+        <input type='date' id='fecha' name='fecha' class="form-control">
+        </div>
 
-        <br><label for='fecha'>Fecha</label>
-        <input type='date' id='fecha' name='fecha'>
+        <div class="form-group">
+            <label for='jugadores_disponibles'>Jugadores Disponibles</label>
+            <input type='number' id='jugadores_disponibles' name='jugadores_disponibles' class="form-control">
+        </div>
 
-        <br><label for='jugadores_disponibles'>Jugadores Disponibles</label>
-        <input type='number' id='jugadores_disponibles' name='jugadores_disponibles'>
+        <div class="form-group">
+            <label for='descripcion'>Descripcion</label>
+            <input type='text' id='descripcion' name='descripcion' class="form-control">
+        </div>
 
-        <br><label for='descripcion'>Descripcion</label>
-        <input type='text' id='descripcion' name='descripcion'>
-
-        <br><br>
-        <input class='boton' type='submit' name='crear' value='Añadir Entrenamiento'>
+        <div  class="form-group">
+            <button type="submit" class="form-control">Añadir jugador</button>
+        </div>
     </form>
     <br><br>
     <button><a href="{{route('calendarios.index')}}">Calendario</a></button>

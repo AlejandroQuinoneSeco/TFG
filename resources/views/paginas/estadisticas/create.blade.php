@@ -7,36 +7,56 @@
     <form action=' {{ route('estadisticas.store') }}' method='post'>
         @method('post')
         @csrf
+<div class="form-group">
+        <label for='nombre_jugador'>Nombre Jugador</label>
+        <input type='text' id='nombre_jugador' name='nombre_jugador'class="form-control" value="{{ $nombreJugador }}" readonly>
+</div>
+        <div class="form-group">
+            <label for="dorsal">Dorsal</label>
+            <input type="number" id="dorsal" name="dorsal" class="form-control" value="{{ $dorsal }}" readonly>
+        </div>
 
-        <br><label for='nombre_jugador'>Nombre Jugador</label>
-        <input type='text' id='nombre_jugador' name='nombre_jugador' value="{{ request('nombre_jugador')}}">
+        <div class="form-group">
 
-        <br><label for='dorsal'>Dorsal</label>
-        <input type='number' id='dorsal' name='dorsal' value="{{ request('dorsal')}}">
+        <label for='partidos_totales'>Partidos Totales</label>
+        <input type='number' class="form-control" id='partidos_totales' name='partidos_totales'>
+        </div>
 
-        <br><label for='partidos_totales'>Partidos Totales</label>
-        <input type='number' id='partidos_totales' name='partidos_totales'>
+        <div class="form-group">
+        <label for='partidos_titular'>Partidos Titular</label>
+        <input type='number' class="form-control" id='partidos_titular' name='partidos_titular'>
+        </div>
 
-        <br><label for='partidos_titular'>Partidos Titular</label>
-        <input type='number' id='partidos_titular' name='partidos_titular'>
+        <div class="form-group">
 
-        <br><label for='partidos_suplente'>Partidos Suplente</label>
-        <input type='number' id='partidos_suplente' name='partidos_suplente'>
+        <label for='partidos_suplente'>Partidos Suplente</label>
+        <input type='number' id='partidos_suplente' class="form-control" name='partidos_suplente'>
+        </div>
 
-        <br><label for='goles'>Goles</label>
-        <input type='number' id='goles' name='goles'>
+        <div class="form-group">
 
-        <br><label for='minutos_jugados'>Minutos Jugados</label>
-        <input type='number' id='minutos_jugados' name='minutos_jugados'>
+        <label for='goles'>Goles</label>
+        <input type='number' id='goles' class="form-control" name='goles'>
+        </div>
 
-        <br><label for='tarjetas_amarillas'>Tarjetas Amarillas</label>
-        <input type='number' id='tarjetas_amarillas' name='tarjetas_amarillas'>
+        <div class="form-group">
+        <label for='minutos_jugados'>Minutos Jugados</label>
+        <input type='number' id='minutos_jugados' class="form-control" name='minutos_jugados'>
+        </div>
 
-        <br><label for='tarjetas_rojas'>Tarjetas Rojas</label>
-        <input type='number' id='tarjetas_rojas' name='tarjetas_rojas'>
+        <div class="form-group">
+        <label for='tarjetas_amarillas'>Tarjetas Amarillas</label>
+        <input type='number' class="form-control" id='tarjetas_amarillas' name='tarjetas_amarillas'>
+        </div>
 
-        <br><br>
-        <input class='boton' type='submit' name='crear' value='Añadir Datos'>
+        <div class="form-group">
+        <label for='tarjetas_rojas'>Tarjetas Rojas</label>
+        <input type='number' id='tarjetas_rojas' class="form-control" name='tarjetas_rojas'>
+        </div>
+
+        <div  class="form-group">
+            <button type="submit" class="form-control">Añadir Datos</button>
+        </div>
 
     </form>
 

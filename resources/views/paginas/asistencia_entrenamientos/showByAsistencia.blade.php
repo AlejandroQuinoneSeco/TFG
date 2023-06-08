@@ -1,13 +1,9 @@
 <x-zz.base>
+    <x-slot:tituloHead>Asistencia al Entrenamiento</x-slot:tituloHead>
+    <x-slot:tituloVisible>Asistencia al Entrenamiento</x-slot:tituloVisible>
 
-    <x-slot:tituloHead>Plantilla</x-slot:tituloHead>
-    <x-slot:tituloVisible>Jugadores</x-slot:tituloVisible>
-
-    <h1>Entrenamientos</h1>
-<div class="table-responsive">
-
+    <div class="table-responsive">
     <table class="table">
-
         <tr>
             <th>Numero Sesion</th>
             <th>Dorsal</th>
@@ -15,26 +11,17 @@
             <th>Asistencia</th>
             <th>Motivo</th>
         </tr>
-
-
-
         @foreach ($asistencias as $asistencia)
             <tr>
                 <td>{{ $asistencia->numero_sesion }}</td>
                 <td>{{ $asistencia->dorsal }}</td>
                 <td>{{ $asistencia->fecha }}</td>
-                <td>{{ ($asistencia->asistencia) ? 'Si' : 'No' }}</td>
+                <td>{{ $asistencia->asistencia ? 'Si' : 'No' }}</td>
                 <td>{{ $asistencia->motivo }}</td>
             </tr>
         @endforeach
-
-
-
-
-
-    </table><br><br>
-</div>
-    <button><a href="{{ route('asistencia_entrenamientos.create', $asistencia->numero_sesion) }}">Crear asistencia</a></button>
-
-    <button><a href="{{route('entrenamientos.index')}}">Volver a entrenamientos</a></button>
+    </table>
+    </div>
+    <button><a href="{{ route('entrenamientos.index') }}">Volver a entrenamientos</a></button>
+    <button><a href="{{ route('asistencia_entrenamientos.createWithDefaultValue', $entrenamiento->numero_sesion) }}">Crear asistencia</a></button>
 </x-zz.base>

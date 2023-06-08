@@ -3,9 +3,13 @@
     <x-slot:tituloHead>Plantilla</x-slot:tituloHead>
     <x-slot:tituloVisible>Jugadores</x-slot:tituloVisible>
 
-    <h1>Plantilla</h1>
+    <head>
+        <h1>Plantilla</h1>
+        <link href="{{ asset('public/css/custom.css') }}" rel="stylesheet">
+    </head>
 
-    <table border="1">
+    <div class="table-responsive">
+        <table class="table">
         <tr>
             <th>Nombre Jugador</th>
             <th>Dorsal</th>
@@ -16,6 +20,7 @@
             <th>Minutos Jugados</th>
             <th>Tarjetas Amarillas</th>
             <th>Tarjetas Rojas</th>
+            <th>Actualizar</th>
 
         </tr>
 
@@ -30,13 +35,16 @@
                 <td>{{ $estadistica->minutos_jugados }}</td>
                 <td>{{ $estadistica->tarjetas_amarillas }}</td>
                 <td>{{ $estadistica->tarjetas_rojas }}</td>
+                <td>
+                    <button><a href="{{ route('estadisticas.edit', ['estadistica' => $estadistica->dorsal]) }}">Editar</a></button>
+                </td>
             </tr>
         @endforeach
 
 
 
-    </table><br><br>
-    <button><a href='{{ route('estadisticas.create') }}'>Crear estadisticas</a></button><br><br>
+    </table>
+    </div>
     <button><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
 
 

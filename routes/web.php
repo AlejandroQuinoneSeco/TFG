@@ -27,12 +27,15 @@ Route::resource('asistencia_entrenamientos', \App\Http\Controllers\AsistenciaEnt
 Route::resource('calendarios', \App\Http\Controllers\CalendarioController::class);
 Route::resource('estadisticas', \App\Http\Controllers\EstadisticaController::class);
 
+Route::get('/asistencia_entrenamientos', [\App\Http\Controllers\AsistenciaEntrenamientoController::class, 'index'])->name('asistencia_entrenamientos.index');
+Route::get('asistencia_entrenamientos/showByAsistencia/{numero_sesion}', [AsistenciaEntrenamientoController::class, 'showByAsistencia'])->name('asistencia_entrenamientos.showByAsistencia');
+
+
+Route::get('/asistencias_entrenamiento/createWithDefaultValue/{numero_sesion}', [\App\Http\Controllers\AsistenciaEntrenamientoController::class, 'createWithDefaultValue'])->name('asistencia_entrenamientos.createWithDefaultValue');
+
 
 Route::get('/estadisticas', [\App\Http\Controllers\EstadisticaController::class, 'index'])->name('estadisticas.index');
 Route::get('/estadisticas/{nombre_jugador}', [\App\Http\Controllers\EstadisticaController::class, 'showByPlayer'])->name('estadisticas.showByPlayer');
-
-
-
 
 Route::get('/', function () {
     return view('welcome');

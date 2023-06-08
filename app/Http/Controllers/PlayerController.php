@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\Estadistica;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -12,10 +13,22 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        $players = Player::orderBy('nombre_jugador')->get();
-        return view('paginas/jugadores/index', compact('players'));
+        $players = Player::orderByRaw("CAST(dorsal AS SIGNED) ASC, dorsal ASC")->get();
+        $jugadoresConEstadisticas = Estadistica::pluck('dorsal')->all();
 
+        return view('paginas/jugadores.index', compact('players', 'jugadoresConEstadisticas'));
     }
+
+    public function estadisticas($nombre_jugador)
+    {
+        // Obtén el jugador en base al nombre proporcionado
+        $jugador = Player::where('nombre_jugador', $nombre_jugador)->first();
+
+        // Realiza cualquier lógica adicional necesaria para obtener las estadísticas del jugador
+
+        return view('paginas/estadisticas.showByPlayer', compact('jugador'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

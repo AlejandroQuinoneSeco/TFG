@@ -4,7 +4,8 @@
     <x-slot:tituloVisible>Mi equipo</x-slot:tituloVisible>
 
     @if(isset($ultimaJornada))
-    <table border= '1'>
+        <div class="table-responsive">
+            <table class="table">
         <tr>
             <th>Equipo</th>
             <th>Proximo Rival</th>
@@ -14,11 +15,13 @@
             <td>{{ $ultimaJornada->proximo_rival }}</td>
         </tr>
     </table>
+        </div>
     @endif
     @if(isset($ultimaJornada))
     <h1>Informacion del partido de esta semana</h1>
 
-    <table border="1">
+        <div class="table-responsive">
+            <table class="table">
         <tr>
             <th>Numero Jornada</th>
             <th>Lugar</th>
@@ -34,11 +37,14 @@
             <td>{{ $ultimaJornada->jugadores_disponibles }}</td>
         </tr>
     </table>
+        </div>
             @else
                <p>No hay jornadas registradas.</p>
             @endif
 
-    </table><br><br>
+    </table>
+        </div>
+
 
     <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
     <button><a href="{{route('jornadas.create')}}">Añadir Jornada</a></button>

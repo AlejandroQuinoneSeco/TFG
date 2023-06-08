@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Entrenamiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class EntrenamientoController extends Controller
 {
@@ -12,10 +14,9 @@ class EntrenamientoController extends Controller
      */
     public function index()
     {
-        $entrenamiento= Entrenamiento::orderBy('Numero_Sesion')->get();
+        $entrenamiento = Entrenamiento::orderBy('Numero_Sesion')->get();
         return view('paginas/entrenamientos/index', compact('entrenamiento'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -30,14 +31,14 @@ class EntrenamientoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'Numero_Sesion'=>'required',
+            'numero_sesion'=>'required',
             'fecha'=> 'required',
             'jugadores_disponibles'=>'required',
             'descripcion'=>'required',
         ]);
 
         $entrenamiento = new Entrenamiento();
-        $entrenamiento->Numero_Sesion = $request->Numero_Sesion;
+        $entrenamiento->numero_sesion = $request->numero_sesion;
         $entrenamiento->fecha = $request->fecha;
         $entrenamiento->jugadores_disponibles=$request->jugadores_disponibles;
         $entrenamiento->descripcion=$request->descripcion;

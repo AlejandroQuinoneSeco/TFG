@@ -8,8 +8,7 @@
         @csrf
         <div class="form-group">
             <label  for="numero_sesion">Numero Sesion</label>
-            <input type="number" name="numero_sesion" class="form-control" id="numero_sesion" placeholder="Introduce numero sesion">
-
+            <input type="number" name="numero_sesion" class="form-control" id="numero_sesion" placeholder="Introduce numero sesion" value="{{ $defaultValues['numero_sesion'] ?? '' }}" readonly>
         </div>
         <div class="form-group">
             <label  for="dorsal">Dorsal</label>
@@ -17,8 +16,7 @@
         </div>
         <div class="form-group">
             <label  for="fecha">Fecha</label>
-            <input type="date" name="fecha" class="form-control" id="fecha">
-
+            <input type="date" name="fecha" class="form-control" id="fecha" value="{{ $defaultValues['fecha'] ?? '' }}" readonly>
         </div>
         <div class="form-group">
             <label for="asistencia"Asistencia</label>
@@ -34,16 +32,18 @@
             <label for="motivo">Motivo</label>
             <input type="text " name="motivo" class="form-control" id="motivo">
         </div>
-      <div  class="form-group">
-          <button type="submit" class="form-control">Añadir asistencia</button>
-      </div>
 
+        <div  class="form-group">
+            <button type="submit" class="form-control">Añadir asistencia</button>
+        </div>
 
     </form>
+
+
+
     <br><br>
     <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
     <br><br>
     <button><a href="{{route('players.index')}}">Ver jugadores</a></button>
 
 </x-zz.base>
-

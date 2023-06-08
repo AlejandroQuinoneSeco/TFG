@@ -38,10 +38,9 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path('pdfs'), // Cambia la ruta según tus necesidades
+            'url' => env('APP_URL').'/pdfs', // Cambia la URL según tus necesidades
             'visibility' => 'public',
-            'throw' => false,
         ],
 
         's3' => [
