@@ -41,9 +41,9 @@
             <input type="number" class="form-control" id="tarjetas_rojas" name="tarjetas_rojas" value="{{ $estadistica->tarjetas_rojas }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Actualizar Estadísticas</button>
+        <button type="submit" class="btn">Actualizar Estadísticas</button>
     </form>
 
     <br><br>
-    <button><a href="{{ route('estadisticas.index') }}">Volver</a></button>
+    <button class="btn"><a href="{{ route('estadisticas.index') }}">Volver</a></button>
 </x-zz.base>

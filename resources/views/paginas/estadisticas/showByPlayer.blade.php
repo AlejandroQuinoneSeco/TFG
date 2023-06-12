@@ -36,6 +36,6 @@
             @endforeach
         </table>
     </div>
-    <button><a href='{{ route('estadisticas.create') }}'>Crear estadisticas</a></button><br><br>
-    <button><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
+    <button class="btn"><a href='{{ route('estadisticas.create') }}'>Crear estadisticas</a></button><br><br>
+    <button class="btn"><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
 </x-zz.base>

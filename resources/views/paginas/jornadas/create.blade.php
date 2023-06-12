@@ -37,13 +37,13 @@
         </div>
 
         <div  class="form-group">
-            <button type="submit" class="form-control">Añadir jugador</button>
+            <button type="submit" class="form-control">Añadir jornada</button>
         </div>
     </form>
 
     <br><br>
-    <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
+    <button class="btn"><a href="{{route('calendarios.index')}}">Calendario</a></button>
     <br><br>
-    <button><a href="{{route('players.index')}}">Ver jugadores</a></button>
+    <button class="btn"><a href="{{route('players.index')}}">Ver jugadores</a></button>
 
 </x-zz.base>

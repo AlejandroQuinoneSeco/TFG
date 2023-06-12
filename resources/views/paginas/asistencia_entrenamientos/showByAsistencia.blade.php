@@ -22,6 +22,6 @@
         @endforeach
     </table>
     </div>
-    <button><a href="{{ route('entrenamientos.index') }}">Volver a entrenamientos</a></button>
-    <button><a href="{{ route('asistencia_entrenamientos.createWithDefaultValue', $entrenamiento->numero_sesion) }}">Crear asistencia</a></button>
+    <button class="btn"><a href="{{ route('entrenamientos.index') }}">Volver a entrenamientos</a></button>
+    <button class="btn"><a href="{{ route('asistencia_entrenamientos.createWithDefaultValue', $entrenamiento->numero_sesion) }}">Crear asistencia</a></button>
 </x-zz.base>

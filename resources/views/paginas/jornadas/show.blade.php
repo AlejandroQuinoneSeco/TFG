@@ -23,13 +23,13 @@
                       method='post'>
                     @method('delete')
 
-                    <input class='button' type='submit' name='crear' value='Eliminar jornada' /></td>
+                    <input class="btn" type='submit' name='crear' value='Eliminar jornada' /></td>
                 </form>
             </tr>
         </table>
     <br/><br/>
 
 
-    <button><a href="{{route('jornadas.index')}}">Jornadas</a></button>
-    <button><a href='{{ route('jornadas.edit', $jornada) }}'>Editarla</a></button>
+    <button class="btn"><a href="{{route('jornadas.index')}}">Jornadas</a></button>
+    <button class="btn"><a href='{{ route('jornadas.edit', $jornada) }}'>Editarla</a></button>
 </x-zz.base>

@@ -15,7 +15,7 @@
           method='post'>
         @method('delete')
 
-        <input class='button' type='submit' name='crear' value='Eliminar persona' />
+        <input class='btn' type='submit' name='crear' value='Eliminar persona' />
     </form>
 
     <br>

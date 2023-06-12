@@ -31,17 +31,17 @@
                       method='post'>
                     @method('delete')
 
-                    <input class='button' type='submit' name='crear' value='Eliminar' />
+                    <input class="btn" type='submit' name='crear' value='Eliminar' />
                 </form>
             </td>
         </tr>
     </table>
     <br><br>
 
-    <button><a href='{{ route('estadisticas.edit', $estadistica) }}'>Editarla</a></button>
+    <button class="btn"><a href='{{ route('estadisticas.edit', $estadistica) }}'>Editarla</a></button>
 
     <br/><br/>
 
 
-    <button><a href='{{ route('players.index') }}'>Volver al listado de jugadores.</a></button>
+    <button class="btn"><a href='{{ route('players.index') }}'>Volver al listado de jugadores.</a></button>
 </x-zz.base>

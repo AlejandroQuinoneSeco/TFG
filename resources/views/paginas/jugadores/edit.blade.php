@@ -14,6 +14,6 @@
     <button type='submit'>Actualizar</button>
     </form>
 
-    <button class="boton"><a href='{{ route('players.index') }}'>Ver Jugadores</a></button>
+    <button class="btn"><a href='{{ route('players.index') }}'>Ver Jugadores</a></button>
 
 </x-zz.base>

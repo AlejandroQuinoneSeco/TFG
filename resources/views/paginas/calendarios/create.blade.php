@@ -25,17 +25,17 @@
     <input type='varchar' id='resultado' name='resultado' class="form-control">
 </div>
         <div  class="form-group">
-            <button type="submit" class="form-control">Añadir Jornada</button>
+            <button type="submit" class="form-control">Añadir resultado</button>
         </div>
 
 
-        </div>
+        <button class="btn"><a href="{{route('calendarios.index')}}">Calendario</a></button>
+        <br><br>
+        <button class="btn"><a href="{{route('players.index')}}">Ver jugadores</a></button>
+
     </form>
 
     <br><br>
 
-    <button><a href="{{route('calendarios.index')}}">Calendario</a></button>
-    <br><br>
-    <button><a href="{{route('players.index')}}">Ver jugadores</a></button>
 
 </x-zz.base>

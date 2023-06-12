@@ -26,5 +26,5 @@
     <br/><br/>
 
 
-    <button><a href='{{ route('asistencia_entrenamientos.index') }}'>Volver al listado de jugadores.</a></button>
+    <button class="btn"><a href='{{ route('asistencia_entrenamientos.index') }}'>Volver al listado de jugadores.</a></button>
 </x-zz.base>

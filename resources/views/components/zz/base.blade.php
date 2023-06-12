@@ -1,25 +1,23 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- CSS de Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>{{ $tituloHead ?? 'Laragenda' }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $tituloHead }}</title>
+
+    <!-- Asegúrate de que tienes la siguiente línea para incluir tu archivo CSS personalizado -->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
 </head>
-<body>
-<x-zz.menu />
+<body class="d-flex flex-column min-vh-100">
+@include('layouts.header')
 
-<h1>{{ $tituloVisible }}</h1>
+<div class="container flex-grow-1">
+    <!-- Aquí va el contenido principal de la página -->
+    {{ $slot }}
+</div>
 
-<hr />
-
-{{ $slot }}
-
-<x-zz.pie />
-<!-- Scripts de JavaScript de Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+@include('layouts.footer')
 
 </body>
 </html>

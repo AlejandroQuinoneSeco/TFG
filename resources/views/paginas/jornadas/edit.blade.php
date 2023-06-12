@@ -11,5 +11,5 @@
         <br><br>
     </form>
 
-    <button class="boton"><a href='{{ route('jornadas.index') }}'>Ver Jornada</a></button>
+    <button class="btn"><a href='{{ route('jornadas.index') }}'>Ver Jornada</a></button>
 </x-zz.base>

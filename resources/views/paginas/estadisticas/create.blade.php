@@ -62,5 +62,5 @@
 
 
     <br><br>
-    <button><a href="{{route('players.index')}}">Plantilla</a></button>
+    <button class="btn"><a href="{{route('players.index')}}">Plantilla</a></button>
 </x-zz.base>

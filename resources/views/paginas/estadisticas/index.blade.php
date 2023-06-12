@@ -36,7 +36,7 @@
                 <td>{{ $estadistica->tarjetas_amarillas }}</td>
                 <td>{{ $estadistica->tarjetas_rojas }}</td>
                 <td>
-                    <button><a href="{{ route('estadisticas.edit', ['estadistica' => $estadistica->dorsal]) }}">Editar</a></button>
+                    <button class="btn"><a href="{{ route('estadisticas.edit', ['estadistica' => $estadistica->dorsal]) }}">Editar</a></button>
                 </td>
             </tr>
         @endforeach
@@ -45,7 +45,7 @@
 
     </table>
     </div>
-    <button><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
+    <button class="btn"><a href='{{ route('players.index') }}'>Ver jugadores</a></button>
 
 
 </x-zz.base>

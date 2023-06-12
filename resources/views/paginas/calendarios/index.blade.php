@@ -26,7 +26,7 @@
                         @endforeach
                     </td>
                     <td>
-                        <button>
+                        <button class="btn">
                             <a href="{{ route('calendarios.create', ['numero_jornada' => $jornada->numero_jornada, 'proximo_rival' => $jornada->proximo_rival]) }}">
                                 Añadir resultado
                             </a>
@@ -36,5 +36,5 @@
             @endforeach
         </table><br><br>
     </div>
-    <button><a href="{{ route('jornadas.index') }}">Ver jornadas</a></button>
+    <button class="btn"><a href="{{ route('jornadas.index') }}">Ver jornadas</a></button>
 </x-zz.base>
